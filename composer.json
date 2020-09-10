@@ -1,0 +1,13 @@
+{
+    "name": "senpai/crazy-senpai",
+    "description": "Senpai codes first cool theme",
+    "authors": [
+        {
+            "name": "Senpai-Codes",
+            "email": "senpai.codes@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "~6.1"
+    }
+}
