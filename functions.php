@@ -30,6 +30,7 @@ $senpai->addStyle('custom-css',  get_template_directory_uri() . '/assets/css/sty
 $senpai->addScript('jq-js',  get_template_directory_uri() . '/assets/vendors/jquery-1.12.0.min.js',  array(), false, true);
 $senpai->addScript('plugin-js',  get_template_directory_uri() . '/assets/scripts/plugins.min.js',  array(), false, true);
 $senpai->addScript('main-js',  get_template_directory_uri() . '/assets/scripts/scripts.js',  array('jq-js', 'plugin-js'), false, true);
+$senpai->addScript('main-senpai',  get_template_directory_uri() . '/assets/senpai/main-senpai.js',  array('jq-js', 'plugin-js'), false, true);
 
 
 //$senpai->removeScript('comment-reply');

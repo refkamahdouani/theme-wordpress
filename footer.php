@@ -2,7 +2,7 @@
 			<!--   FOOTER                 -->
 			<!-- ************************ -->
 
-			<footer class="pt150 jarallax" style="background-image: url(assets/img/bg13.png);">
+			<footer class="pt150 jarallax" style="background-image: url(https://via.placeholder.com/1800x900);">
 				<div class="overlay"></div>
 				<div class="container">
 
