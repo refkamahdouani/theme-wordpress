@@ -28,6 +28,8 @@ $senpai->addScript('jq-js',  get_template_directory_uri() . '/assets/vendors/jqu
 $senpai->addScript('plugin-js',  get_template_directory_uri() . '/assets/scripts/plugins.min.js',  array(), false, true);
 $senpai->addScript('main-js',  get_template_directory_uri() . '/assets/scripts/scripts.js',  array('jq-js', 'plugin-js'), false, true);
 
+$senpai->removeScript('comment-reply');
+
 //Custom Post types
 require_once get_template_directory() . '/inc/senpai-cpt.php';
 
@@ -36,3 +38,4 @@ require_once get_template_directory() . '/inc/senpai-tax.php';
 
 //Settings Page
 require_once get_template_directory() . '/inc/senpai-settings.php';
+

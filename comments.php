@@ -15,8 +15,8 @@ if (post_password_required()){return;}?>
 
         wp_list_comments( array(
             'style'         => '',
-            'max_depth'     => 4,
-            'short_ping'    => true,
+            'max_depth'     => 15,
+            'short_ping'    => false,
             'avatar_size'   => '50',
             'walker'        => new Senpai_Walker_Comment(),
         ) );
