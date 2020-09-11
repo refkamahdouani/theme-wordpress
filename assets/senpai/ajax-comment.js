@@ -47,11 +47,10 @@ jQuery(function($){
 		$( '#comment' ).validate();
  
 		// if comment form isn't in process, submit it
-        if ( true
-             //!button.hasClass( 'loadingform' ) &&
-             //!$( '#author' ).hasClass( 'error' ) && 
-             //!$( '#email' ).hasClass( 'error' ) && 
-             //!$( '#comment' ).hasClass( 'error' ) 
+        if ( !button.hasClass( 'loadingform' ) &&
+             !$( '#author' ).hasClass( 'error' ) && 
+             !$( '#email' ).hasClass( 'error' ) && 
+             !$( '#comment' ).hasClass( 'error' ) 
             ){
  
             // ajax request
@@ -84,12 +83,19 @@ jQuery(function($){
 				success: function ( addedCommentHTML ) {
                     console.log('success');
 					// if this post already has comments
-					$('#close-comment-modal').trigger("click");
+					//$('#close-comment-modal').trigger("click");
 					commentlist.append( addedCommentHTML );
 					// clear fields
 					$('#comment').val('');
 					$( '#email' ).val('');
 					$( '#author').val('');
+					//
+
+					//$( '#senpai-comment-popup').hide(700);
+					//$( '.remodal-wrapper, .remodal-overlay').hide(700);
+					$( '#comments-title').show(300);
+					
+					$( '#no-comments-senpai').html('');
 				},
 				complete: function(){
 					// what to do after a comment has been added

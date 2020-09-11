@@ -36,7 +36,8 @@ if ( ! class_exists( 'Crazy_Senpai_Navwalker' ) ) :
 			if (in_array('current-menu-item', $item->classes) ){
 				$classes[] = 'active ';
 			  }
-			//error_log($isparent);
+			//error_log('--------------------');
+			//error_log(print_r(implode(" ", $item->classes),1));
 			if ($args->walker->has_children) {
 				$output .= "<li class='has-submenu " .  implode(" ", $item->classes) . "'>";
 			}else{

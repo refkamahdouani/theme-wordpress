@@ -142,7 +142,7 @@
 				<!--   POST COMMENT POPUP     -->
 				<!-- ************************ -->
 
-				<div class="remodal post-comment" data-remodal-id="post-comment">
+				<div id="senpai-comment-popup" class="remodal post-comment" data-remodal-id="post-comment">
 
 					<button id="close-comment-modal" data-remodal-action="close" class="remodal-close-popup">
 						<i class="fa fa-close"></i>
