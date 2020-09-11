@@ -52,4 +52,12 @@ require_once get_template_directory() . '/inc/senpai-ajax-comment.php';
 require_once get_template_directory() . '/inc/senpai_id_dashboard.php';
 
 
+//SMTP
+
+require_once get_template_directory() . '/inc/senpai_smtp.php';
+//Send_mail($email,$name,$msg)
+//$result = Send_mail('','','');
+//error_log($result);
+
+
 
