@@ -42,7 +42,7 @@ require_once get_template_directory() . '/inc/senpai-cpt.php';
 require_once get_template_directory() . '/inc/senpai-tax.php';
 
 //Settings Page
-require_once get_template_directory() . '/inc/senpai-settings.php';
+require_once get_template_directory() . '/admin/admin.php';
 
 //Ajax Comment
 require_once get_template_directory() . '/inc/senpai-ajax-comment.php';
