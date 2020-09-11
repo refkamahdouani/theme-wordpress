@@ -21,7 +21,7 @@ if (post_password_required()){return;}?>
             'walker'        => new Senpai_Walker_Comment(),
         ) );
         ?>
-
+		</div><!-- End comment-list -->
 		<?php
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
@@ -53,6 +53,6 @@ if (post_password_required()){return;}?>
 	//https://rudrastyh.com/wordpress/ajax-comments.html
 	?>
 
-</div><!-- End comment-list -->
+
 </div><!-- End container -->
 </div><!-- End comment-wrap -->

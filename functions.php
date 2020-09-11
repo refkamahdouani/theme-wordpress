@@ -3,6 +3,9 @@
 //prevent direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+//composer support
+require get_template_directory() . '/vendor/autoload.php';
+
 //redirect error logs to /logs/all-debug.log
 ini_set( 'error_log', get_template_directory() . '/logs/all-debug.log' );
 
@@ -28,7 +31,8 @@ $senpai->addScript('jq-js',  get_template_directory_uri() . '/assets/vendors/jqu
 $senpai->addScript('plugin-js',  get_template_directory_uri() . '/assets/scripts/plugins.min.js',  array(), false, true);
 $senpai->addScript('main-js',  get_template_directory_uri() . '/assets/scripts/scripts.js',  array('jq-js', 'plugin-js'), false, true);
 
-$senpai->removeScript('comment-reply');
+
+//$senpai->removeScript('comment-reply');
 
 //Custom Post types
 require_once get_template_directory() . '/inc/senpai-cpt.php';
@@ -38,4 +42,13 @@ require_once get_template_directory() . '/inc/senpai-tax.php';
 
 //Settings Page
 require_once get_template_directory() . '/inc/senpai-settings.php';
+
+//Ajax Comment
+require_once get_template_directory() . '/inc/senpai-ajax-comment.php';
+
+
+//Show ID in the dashboard
+require_once get_template_directory() . '/inc/senpai_id_dashboard.php';
+
+
 

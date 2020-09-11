@@ -144,17 +144,18 @@
 
 				<div class="remodal post-comment" data-remodal-id="post-comment">
 
-					<button data-remodal-action="close" class="remodal-close-popup">
+					<button id="close-comment-modal" data-remodal-action="close" class="remodal-close-popup">
 						<i class="fa fa-close"></i>
 					</button>
 					<div class="text-center">
 						<h3 class="comment-title">Leave a Comment</h3>
 					</div>
-					<form class="comment-form form-black">
+					<form id="comment-form" class="comment-form form-black">
+						<?php if(!is_user_logged_in()):?>
 						<div class="col-sm-12 mb30">
 							<div class="form-control">
 
-								<input type="text" name="name" placeholder="Your name:">
+								<input type="text" id="author" name="author" placeholder="Your name:">
 
 								<div class="line-input"></div>
 
@@ -168,18 +169,25 @@
 								<div class="line-input"></div>
 							</div>
 						</div>
+						<?php endif; ?>
 						<!-- End col-sm-12 -->
 						<div class="col-sm-12 mb50">
 							<div class="form-control">
 
-								<textarea name="message" placeholder="Comment:"></textarea>
+								<textarea id="comment" name="comment" placeholder="Comment:"></textarea>
+
+							</div>
+						</div>
+						<!-- End col-sm-12 -->
+						<div class="col-sm-12 mb50">
+							<div id="respond" class="form-control">
 
 							</div>
 						</div>
 						<!-- End col-sm-12 -->
 						<div class="col-sm-12">
 							<div class="text-center">
-								<button class="btn">
+								<button id="submit" class="btn">
 									<span>Submit</span>
 								</button>
 							</div>

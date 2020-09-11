@@ -39,8 +39,7 @@ class Senpai_Walker_Comment extends Walker_Comment {
 
             $avatar              = get_avatar_url( $comment, $args['avatar_size'] );
             $reply_comment = '';
-            //https://developer.wordpress.org/reference/functions/get_comment_date/
-            $comment_timestamp = sprintf( '%1$s at %2$s', get_comment_date( "l, F jS, Y", $comment ), get_comment_time() );
+
             if($comment->comment_parent !== '0'){
                 //$reply_comment = 'reply-comment';
             }
