@@ -1,10 +1,6 @@
 <?php
 if (post_password_required()){return;}?>
 
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
-		?>
 		<div class="comment-wrap pt100">
 		<div class="container">
 		<h3 class="comment-title">Comments:</h3>
@@ -19,7 +15,9 @@ if (post_password_required()){return;}?>
             'short_ping'    => false,
             'avatar_size'   => '50',
             'walker'        => new Senpai_Walker_Comment(),
-        ) );
+		) );
+		
+	 // Check for have_comments().
         ?>
 		</div><!-- End comment-list -->
 		<?php
@@ -47,7 +45,7 @@ if (post_password_required()){return;}?>
 			<?php
 		}
 
-	endif; // Check for have_comments().
+	
 
 	//comment_form();
 	//https://rudrastyh.com/wordpress/ajax-comments.html
