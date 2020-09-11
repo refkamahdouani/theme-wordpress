@@ -27,6 +27,7 @@ function senpai_custom_taxonomy() {
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
+    'show_in_rest' => true,
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'type' ),
