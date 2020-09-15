@@ -19,7 +19,7 @@
 						<div class="breadcrumbs">
 							<ul class="list-none">
 								<li>
-									<a href="#" class="animsition-link">Home</a>
+									<a href="<?php echo get_home_url(); ?>" class="animsition-link">Home</a>
 								</li>
 								<li>Our Works</li>
 							</ul>
@@ -51,21 +51,19 @@
 											<li class="active-filter" data-filter="*">
 												<span>all</span>
 											</li>
-											<li data-filter=".f_web_design">
-												<span>web design</span>
-											</li>
-											<li data-filter=".f_development">
-												<span>development</span>
-											</li>
-											<li data-filter=".f_graphic_design">
-												<span>graphic design</span>
-											</li>
-											<li data-filter=".f_branding">
-												<span>branding</span>
-											</li>
-											<li data-filter=".f_photography">
-												<span>photography</span>
-											</li>
+											<?php
+											$terms = get_terms( array(
+												'taxonomy' => 'types',
+												'hide_empty' => true,
+											) );
+											$term_HTML = '';
+												foreach ($terms as $key => $term) {
+													$term_name = $term->name;	
+													$term_slug = $term->slug;
+													$term_HTML .= "<li data-filter='.${term_slug}'><span>${term_name}</span></li>";
+												}
+										    echo $term_HTML;
+											?>
 										</ul>
 										<!-- End filters -->
 
@@ -82,117 +80,57 @@
 						<div class="row">
 							<div class="crazy-portfolio-masonry-wrapper" data-col="3">
 								<div class="crazy-portfolio-list">
+								<?php
+									$loop = new WP_Query( array(
+										'post_type' => 'project',
+										'posts_per_page' => 6
+									)
+									);
+									?>
 
-									<div class="crazy-portfolio-item f_web_design f_photography">
-										<a href="work_single_one.html" class="animsition-link">
+									<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+									<!-- do stuff -->
+									<?php 
+									$permalink = get_permalink($post);
+									//implode ( string $glue , array $pieces )
+									$termSlug = [];
+									$terms = get_the_terms($post->ID, 'types');
+									foreach ($terms as $term) {
+										array_push($termSlug,$term->slug);
+									}
+									$types = implode ( ' ' , $termSlug);
+									error_log(print_r($types,1));
+									$feature_img = get_the_post_thumbnail_url();
+									?>
+									<div class="crazy-portfolio-item <?php echo $types; ?>">
+										<a href="<?php echo $permalink; ?>" class="animsition-link">
 											<div
 												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
+												style="background-image: url(<?php echo $feature_img; ?>);"></div>
 											<div class="figure cross"></div>
 											<div class="overlay-color"></div>
 										</a>
 									</div>
 									<!-- End crazy-portfolio-item -->
+									<?php endwhile; wp_reset_query(); ?>
 
-									<div class="crazy-portfolio-item f_branding">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure circle"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_web_design">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure triangle"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_development">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure circle"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_graphic_design">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure triangle"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_branding">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure cross"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_development">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure triangle"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_graphic_design">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700);"></div>
-											<div class="figure cross"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
-
-									<div class="crazy-portfolio-item f_photography">
-										<a href="work_single_one.html" class="animsition-link">
-											<div
-												class="image-wrap"
-												style="background-image: url(https://via.placeholder.com/700x700g);"></div>
-											<div class="figure circle"></div>
-											<div class="overlay-color"></div>
-										</a>
-									</div>
-									<!-- End crazy-portfolio-item -->
 
 								</div>
 								<!-- End crazy-portfolio-list -->
 							</div>
 							<!-- ENd crazy-portfolio-masonry-wrapper -->
-
+							<?php
+							global $wp_query; // you can remove this line if everything works for you
+							
+							// don't display the button if there are not enough posts
+							if (  $wp_query->max_num_pages > 1 ):?>
 							<div class="mt80 text-center">
-								<a href="#" class="load-more-btn btn" data-load="3">
+								<a href="#" id="load-more-projects" class="load-more-btn btn" data-load="3">
 									<span>Load More</span>
 								</a>
 							</div>
-
+							<?php endif; ?>
 						</div>
 					</div>
 					<!-- End container -->

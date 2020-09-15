@@ -52,6 +52,8 @@ require_once get_template_directory() . '/inc/senpai-cpt.php';
 //Custom Post types Taxanomies
 require_once get_template_directory() . '/inc/senpai-tax.php';
 
+
+
 //Settings Page
 require_once get_template_directory() . '/admin/admin.php';
 
@@ -60,6 +62,17 @@ $admin = new WeDevs_Settings_API_Test;
 //Ajax Comment
 require_once get_template_directory() . '/inc/senpai-ajax-comment.php';
 
+//Ajax projects
+require_once get_template_directory() . '/inc/senpai-ajax-projects.php';
+
+
+//Ajax projects
+require_once get_template_directory() . '/inc/senpai_vars.php';
+
+
+//
+
+//senpai-ajax-projects.php
 
 //Show ID in the dashboard
 require_once get_template_directory() . '/inc/senpai_id_dashboard.php';
