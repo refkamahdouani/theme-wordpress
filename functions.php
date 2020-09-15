@@ -14,6 +14,8 @@ require get_template_directory() . '/inc/theme-class.php';
 
 $senpai = new SenpaiTheme;
 
+
+
 //senpai Nav walker
 function register_navwalker(){
 	require_once get_template_directory() . '/inc/senpai-nav-walker.php';
@@ -35,6 +37,15 @@ $senpai->addScript('main-senpai',  get_template_directory_uri() . '/assets/senpa
 
 //$senpai->removeScript('comment-reply');
 
+//Theme activation logic
+require_once get_template_directory() . '/inc/senpai-theme-activation.php';
+
+//Theme deactivation logic
+require_once get_template_directory() . '/inc/senpai-theme-deactivation.php';
+
+//login/logout logic
+require_once get_template_directory() . '/inc/senpai-user-login.php';
+
 //Custom Post types
 require_once get_template_directory() . '/inc/senpai-cpt.php';
 
@@ -43,6 +54,8 @@ require_once get_template_directory() . '/inc/senpai-tax.php';
 
 //Settings Page
 require_once get_template_directory() . '/admin/admin.php';
+
+$admin = new WeDevs_Settings_API_Test;
 
 //Ajax Comment
 require_once get_template_directory() . '/inc/senpai-ajax-comment.php';
