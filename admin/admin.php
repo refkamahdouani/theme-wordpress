@@ -243,6 +243,16 @@ class WeDevs_Settings_API_Test {
                         'button_label' => 'Choose Image'
                     )
                 ),
+                array(
+                    'name'    => '404-img',
+                    'label'   => __( '404 default image', 'wp-crazy-senpai' ),
+                    'desc'    => __( '404 image.', 'wp-crazy-senpai' ),
+                    'type'    => 'file',
+                    'default' => '',
+                    'options' => array(
+                        'button_label' => 'Choose Image'
+                    )
+                ),
             )
         );
 

@@ -108,6 +108,9 @@
 									$types = implode ( ' ' , $termSlug);
 									//error_log(print_r($types,1));
 									$feature_img = get_the_post_thumbnail_url();
+									if($feature_img == ''){
+										$feature_img =  wp_crazy_senpai_get_option( 'project-default-poster', 'senpai_fallback_background','https://via.placeholder.com/700x700' );
+									}
 									?>
 									<div class="crazy-portfolio-item <?php echo $types; ?>">
 										<a href="<?php echo $permalink; ?>" class="animsition-link">

@@ -81,8 +81,14 @@
         </div>
         <!-- End container -->
     </div>
-
-    <div class="title-home jarallax" style="background-image: url(https://via.placeholder.com/1860x990);">
+    <?php
+			$featured_image_404 = '';
+			$featured_image_404 =  wp_crazy_senpai_get_option( '404-img', 'senpai_fallback_background','' );
+			if($featured_image_404 == ''){
+				$featured_image_404 =  wp_crazy_senpai_get_option( 'default-header', 'senpai_fallback_background','https://via.placeholder.com/1800x900' );
+			}
+			?>
+    <div class="title-home jarallax" style="background-image: url(<?php echo $featured_image_404; ?>);">
 
 <div class="overlay"></div>
 <!-- End overlay -->
