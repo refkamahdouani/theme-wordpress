@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 			<!-- ************************ -->
-			<!--   PAGE TITLE  tset test          -->
+			<!--   PAGE TITLE       -->
 			<!-- ************************ -->
 
 			<div class="page-title jarallax" style="background-image: url(https://via.placeholder.com/1900x840);">
