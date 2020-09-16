@@ -2,7 +2,13 @@
 			<!--   FOOTER                 -->
 			<!-- ************************ -->
 
-			<footer class="pt150 jarallax" style="background-image: url(https://via.placeholder.com/1800x900);">
+			<footer>
+			<?php 
+$image = get_field('bg_image');
+
+if( !empty( $image ) ): ?>
+				<div class="pt150 jarallax" style="background-image: url(<?php echo esc_url($image['url']); ?>);">
+<?php endif; ?>
 				<div class="overlay"></div>
 				<div class="container">
 
@@ -22,6 +28,7 @@
 									<div class="form-control">
 
 										<input
+										id="name"
 											class="contact-form-name"
 											type="text"
 											name="name"
@@ -34,7 +41,8 @@
 								<div class="col-sm-12 mb30">
 									<div class="form-control">
 
-										<input
+										<input 
+										id="email"
 											class="contact-form-email"
 											type="text"
 											name="email"
@@ -47,7 +55,7 @@
 								<div class="col-sm-12 mb50">
 									<div class="form-control">
 
-										<textarea class="contact-form-message" name="message" placeholder="Message:"></textarea>
+										<textarea class="contact-form-message" id="msg" name="message" placeholder="Message:"></textarea>
 										<div class="line-input"></div>
 
 									</div>
@@ -56,7 +64,7 @@
 								<div class="col-sm-12">
 									<div class="text-center">
 
-										<button class="btn btn-white">
+										<button id="send-msg" class="btn btn-white">
 											<span>Submit<i class="fa fa-spin fa-spinner ajax-loader" style="display: none;"></i>
 											</span>
 										</button>
@@ -120,6 +128,7 @@
 					</div>
 				</div>
 				<!-- End container -->
+		</div>
 			</footer>
 
 		</div>

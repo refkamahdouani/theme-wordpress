@@ -46,6 +46,10 @@ require_once get_template_directory() . '/inc/senpai-theme-deactivation.php';
 //login/logout logic
 require_once get_template_directory() . '/inc/senpai-user-login.php';
 
+
+//ajax contact
+require_once get_template_directory() . '/inc/senpai-ajax-contact.php';
+
 //Custom Post types
 require_once get_template_directory() . '/inc/senpai-cpt.php';
 

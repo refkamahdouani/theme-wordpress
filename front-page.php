@@ -4,8 +4,14 @@
 			<!--   PAGE TITLE             -->
 			<!-- ************************ -->
 
-			<div class="title-home jarallax" style="background-image: url(https://via.placeholder.com/1860x990);">
+			<?php 
+$image = get_field('bg_image');
 
+if( !empty( $image ) ): ?>
+
+			<div class="title-home jarallax" style="background-image: url(<?php echo esc_url($image['url']); ?>);">
+			
+<?php endif; ?>
 				<div class="overlay"></div>
 				<!-- End overlay -->
 
