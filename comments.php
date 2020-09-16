@@ -1,7 +1,7 @@
 <?php
 if (post_password_required()){return;}?>
 
-		<div class="comment-wrap pt100">
+		<div id="leave-comment-senpai" class="comment-wrap pt100">
 		<div class="container">
 		<h3 id="comments-title" <?php if(!have_comments()){ echo "style='display:none'";} ?> class="comment-title">Comments:</h3>
 		<div class="comment-list">

@@ -100,7 +100,7 @@
 										array_push($termSlug,$term->slug);
 									}
 									$types = implode ( ' ' , $termSlug);
-									error_log(print_r($types,1));
+									//error_log(print_r($types,1));
 									$feature_img = get_the_post_thumbnail_url();
 									?>
 									<div class="crazy-portfolio-item <?php echo $types; ?>">

@@ -65,8 +65,11 @@ require_once get_template_directory() . '/inc/senpai-ajax-comment.php';
 //Ajax projects
 require_once get_template_directory() . '/inc/senpai-ajax-projects.php';
 
+//Ajax posts
+require_once get_template_directory() . '/inc/senpai-ajax-posts.php';
 
-//Ajax projects
+
+//Global Vars
 require_once get_template_directory() . '/inc/senpai_vars.php';
 
 

@@ -45,9 +45,101 @@
 					<div class="container">
 						<div class="row">
 
-							<div class="blog-masonry">
+							<div id="blog-container-senpai" class="blog-masonry">
+								
+								<!--THE LOOP HERE-->
+								<?php while ( have_posts() ) : the_post(); 
+								//error_log(print_r($post,1));
+								$detect = basename( get_page_template($post));
+								$type = 'Default';
+								$permalink = get_permalink($post);
+								$title = get_the_title();
+								$comments_count = get_comments_number();
+								$feature_img = get_the_post_thumbnail_url();
 
-								<div class="isotope-item">
+								$post_date = get_the_date( "Y-m-d H:i:s");
+								$format = "Y-m-d H:i:s";
+					
+								//https://www.php.net/manual/en/datetime.formats.php
+								$dateobj = DateTime::createFromFormat($format, $post_date);
+					
+								//https://www.php.net/manual/en/datetime.format.php
+								$formattedDate = date_format($dateobj, "d.m.Y");
+								//error_log(print_r($formattedDate,1));
+
+								if($detect == 'singleVideo.php'){
+									$type = 'Video';
+								}
+
+								if($type == 'Default'):
+									if($feature_img):
+									// default post with featured img
+								?>
+									<div class="isotope-item">
+										<div class="blog-item">
+
+											<div class="thumb">
+												<a href="<?php echo $permalink; ?>" class="animsition-link">
+													<img src="<?php echo $feature_img; ?>" alt="blog">
+												</a>
+											</div>
+											<!-- End thumb -->
+
+											<div class="post-content">
+												<div>
+													<span class="date">
+														06.03.2017
+													</span>
+												</div>
+												<h6>
+													<a href="<?php echo $permalink; ?>" class="animsition-link"><?php echo $title; ?></a>
+												</h6>
+												<p>
+													Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
+												</p>
+												<div class="blog-meta">
+													<a href="<?php echo $permalink; ?>#leave-comment-senpai">
+														<i class="fa fa-comment-o"></i><?php echo $comments_count; ?></a>
+													<a href="#">
+														<i class="fa fa-heart-o"></i>8</a>
+												</div>
+											</div>
+											<!-- End post-content -->
+										</div>
+										<!-- End blog-item -->
+									</div>
+									<!-- End isotope-item featured -->
+								<?php else://default post with no featured img ?>
+									<div class="isotope-item">
+									<div class="blog-item full-img clearfix">
+
+										<div class="post-content text-center">
+											<div>
+												<span class="date">
+													06.03.2017
+												</span>
+											</div>
+											<h6>
+												<a href="<?php echo $permalink; ?>" class="animsition-link"><?php echo $title; ?></a>
+											</h6>
+
+											<div class="blog-meta">
+												<a href="<?php echo $permalink; ?>#leave-comment-senpai">
+													<i class="fa fa-comment-o"></i><?php echo $comments_count; ?></a>
+												<a href="#">
+													<i class="fa fa-heart-o"></i>8</a>
+											</div>
+
+										</div>
+										<!-- End post-content -->
+									</div>
+									<!-- End blog-item -->
+								</div>
+								<!-- End isotope-item Simple -->
+								<?php endif; ?>
+
+								<?php elseif($type == 'Video'): ?>
+									<div class="isotope-item">
 									<div
 										class="blog-item full-img clearfix"
 										style="background-image: url(https://via.placeholder.com/600x540);">
@@ -55,7 +147,7 @@
 										<div class="post-content text-center">
 
 											<h6>
-												<a href="#" class="animsition-link">pellentesque pretium Proin facilisis quis luctus</a>
+												<a href="<?php echo $permalink; ?>" class="animsition-link"><?php echo $title; ?></a>
 											</h6>
 											<p>Mauris velit diam, consectetur orci nec, malesuada imperdiet justo.
 												Suspendisse laoreet sem auctor congue, sit amet.
@@ -72,489 +164,28 @@
 									</div>
 									<!-- End blog-item -->
 								</div>
-								<!-- End isotope-item -->
-								<div class="isotope-item">
-									<div class="blog-item clearfix">
-										<div class="blog-slider">
-											<img src="https://via.placeholder.com/600x540" alt="image">
-											<img src="https://via.placeholder.com/600x540" alt="image">
-											<img src="https://via.placeholder.com/600x540" alt="image">
-										</div>
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item full-img clearfix">
-
-										<div class="post-content text-center">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="post_single_two.html" class="animsition-link">nec neque iaculis sodales ultrices metus</a>
-											</h6>
-
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Nam condimentum viverra lorem, vitae porta orci cursus</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Mauris Luctus Non Odio Non Eleifend Pellentesque At Maximus Felis</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-
-											<h6>
-												<a href="#" class="animsition-link">Duis pellentesque pretium tempor Proin facilisis ex quis luctus</a>
-											</h6>
-											<p>
-												Vestibulum euismod. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Nam condimentum viverra lorem, vitae porta orci cursus</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Mauris Luctus Non Odio Non Eleifend Pellentesque At Maximus Felis</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-
-											<h6>
-												<a href="#" class="animsition-link">Duis pellentesque pretium tempor Proin facilisis ex quis luctus</a>
-											</h6>
-											<p>
-												Vestibulum euismod. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Nam condimentum viverra lorem, vitae porta orci cursus</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Mauris Luctus Non Odio Non Eleifend Pellentesque At Maximus Felis</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-
-											<h6>
-												<a href="#" class="animsition-link">Duis pellentesque pretium tempor Proin facilisis ex quis luctus</a>
-											</h6>
-											<p>
-												Vestibulum euismod. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Nam condimentum viverra lorem, vitae porta orci cursus</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-											<h6>
-												<a href="#" class="animsition-link">Mauris Luctus Non Odio Non Eleifend Pellentesque At Maximus Felis</a>
-											</h6>
-											<p>
-												Vestibulum euismod sodales. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-								</div>
-								<!-- End isotope-item -->
-
-
-								<div class="isotope-item">
-									<div class="blog-item">
-
-										<div class="thumb">
-											<a href="#" class="animsition-link">
-												<img src="https://via.placeholder.com/600x540" alt="blog">
-											</a>
-										</div>
-										<!-- End thumb -->
-
-										<div class="post-content">
-											<div>
-												<span class="date">
-													06.03.2017
-												</span>
-											</div>
-
-											<h6>
-												<a href="#" class="animsition-link">Duis pellentesque pretium tempor Proin facilisis ex quis luctus</a>
-											</h6>
-											<p>
-												Vestibulum euismod. Suspend consequat, quis tincidunt molestie.
-											</p>
-											<div class="blog-meta">
-												<a href="#">
-													<i class="fa fa-comment-o"></i>12</a>
-												<a href="#">
-													<i class="fa fa-heart-o"></i>8</a>
-											</div>
-										</div>
-										<!-- End post-content -->
-									</div>
-									<!-- End blog-item -->
-
-								</div>
-								<!-- End isotope-item -->
-
+								<!-- End isotope-item Video -->
+								<?php endif; ?>
+								<?php endwhile; ?>
 							</div>
 							<!-- End blog-masonry-wrap -->
 
 						</div>
 					</div>
 					<!-- End container -->
-
+					<?php
+							//global $wp_query; // you can remove this line if everything works for you
+							
+							// don't display the button if there are not enough posts
+							if (  $wp_query->max_num_pages > 1 ):?>
 					<div class="container">
 						<div class="text-center mt80">
-							<a href="#" class="btn">
+							<a  id="load-more-posts" class="btn">
 								<span>load more</span>
 							</a>
 						</div>
 					</div>
+					<?php endif; ?>
 					<!-- End container -->
 
 				</section>
