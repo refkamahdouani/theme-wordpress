@@ -15,3 +15,10 @@ function senpai_posts_per_page( $query ) {
 
 }
 add_filter( 'pre_get_posts', 'senpai_posts_per_page' );
+
+function senpai_img_sizes_theme() {
+   //add_theme_support( 'post-thumbnails' );
+   add_image_size( 'team-thumb', 60, 60, true );
+}
+ 
+add_action( 'after_setup_theme', 'senpai_img_sizes_theme' );

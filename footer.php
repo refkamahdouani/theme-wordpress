@@ -2,7 +2,7 @@
 			<!--   FOOTER                 -->
 			<!-- ************************ -->
 
-			<footer class="pt150 jarallax" style="background-image: url(https://via.placeholder.com/1800x900);">
+			<footer class="pt150 jarallax" style="background-image: url(<?php echo wp_crazy_senpai_get_option( 'default-footer', 'senpai_fallback_background', $default = 'https://via.placeholder.com/1800x900' );?>);">
 				<div class="overlay"></div>
 				<div class="container">
 

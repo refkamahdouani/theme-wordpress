@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "SpaceAge";
+  src: url("./fonts/spaceage.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/spaceage.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/spaceage.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/spaceage.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/spaceage.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/spaceage.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/spaceage.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

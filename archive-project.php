@@ -4,8 +4,14 @@
 			<!-- ************************ -->
 			<!--   PAGE TITLE             -->
 			<!-- ************************ -->
-
-			<div class="page-title jarallax" style="background-image: url(https://via.placeholder.com/1900x840);">
+			<?php
+			$featured_image_projects = '';
+			$featured_image_projects =  wp_crazy_senpai_get_option( 'header-project', 'senpai_fallback_background','' );
+			if($featured_image_projects == ''){
+				$featured_image_projects =  wp_crazy_senpai_get_option( 'default-header', 'senpai_fallback_background','https://via.placeholder.com/1800x900' );
+			}
+			?>
+			<div class="page-title jarallax" style="background-image: url(<?php echo $featured_image_projects; ?>);">
 
 				<div class="overlay"></div>
 				<!-- End overlay -->
