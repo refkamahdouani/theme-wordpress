@@ -11,4 +11,8 @@ function senpai_deactivation () {
     $table_name = $wpdb->prefix . "users_log";
     $sql = "DROP TABLE IF EXISTS $table_name;";
     $wpdb->query($sql);
+
+    $table_name_contact = $wpdb->prefix . "contact";
+    $sql = "DROP TABLE IF EXISTS $table_name_contact;";
+    $wpdb->query($sql);
 }

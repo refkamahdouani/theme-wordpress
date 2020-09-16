@@ -26,4 +26,18 @@ function senpai_activation () {
     
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
+
+
+    $table_name_contact = $wpdb->prefix . 'contact';
+
+    $sql_contact = "CREATE TABLE $table_name_contact (
+      id mediumint(9) NOT NULL AUTO_INCREMENT,
+      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+      name tinytext NOT NULL,
+      email text NOT NULL,
+      msg text NOT NULL,
+      PRIMARY KEY  (id)
+    ) $charset_collate;";
+
+  dbDelta( $sql_contact );
 }

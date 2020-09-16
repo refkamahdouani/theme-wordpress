@@ -10,18 +10,14 @@
 
 					<div class="col-sm-8 col-sm-offset-2 pt80 pb80" data-sr="wait .2s">
 						<div class="row">
-							<form
+							<div
 								class="contact-form"
-								id="contact-form"
-								action="send_email.php"
-								method="post"
-								data-all-fields-required-msg="All fields are required"
-								data-ajax-fail-msg="Ajax could not set the request"
-								data-success-msg="Email successfully sent.">
+								id="contact-form">
 								<div class="col-sm-12 mb30">
 									<div class="form-control">
 
 										<input
+											id="name"
 											class="contact-form-name"
 											type="text"
 											name="name"
@@ -35,6 +31,7 @@
 									<div class="form-control">
 
 										<input
+											id="email"
 											class="contact-form-email"
 											type="text"
 											name="email"
@@ -47,7 +44,7 @@
 								<div class="col-sm-12 mb50">
 									<div class="form-control">
 
-										<textarea class="contact-form-message" name="message" placeholder="Message:"></textarea>
+										<textarea id="msg" class="contact-form-message" name="message" placeholder="Message:"></textarea>
 										<div class="line-input"></div>
 
 									</div>
@@ -56,8 +53,8 @@
 								<div class="col-sm-12">
 									<div class="text-center">
 
-										<button class="btn btn-white">
-											<span>Submit<i class="fa fa-spin fa-spinner ajax-loader" style="display: none;"></i>
+										<button id="send-msg" class="btn btn-white">
+											<span>Submit  <i id="loading-btn-ajax" class="fa fa-spin fa-spinner ajax-loader" style="display: none;"></i>
 											</span>
 										</button>
 
@@ -65,10 +62,10 @@
 								</div>
 								<!-- End col-sm-12 -->
 								<div class="col-sm-12">
-									<p class="return-msg">&nbsp;</p>
+									<p class="return-msg" id="return-senpai">&nbsp;</p>
 								</div>
 								<!-- End col-sm-12 -->
-							</form>
+							</div>
 							<!-- End contact-form -->
 						</div>
 					</div>

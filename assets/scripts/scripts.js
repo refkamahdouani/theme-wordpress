@@ -288,15 +288,15 @@ jQuery.noConflict()(function ($) {
 		function setReturnMessage(form_el, content) {
 			if (!isSet(content))
 				content = 'Unspecified message.';
-			form_el.find('.return-msg').html(content);
+			//form_el.find('.return-msg').html(content);
 		}
 
 		function showReturnMessage(form_el) {
-			form_el.find('.return-msg').addClass('show-return-msg');
+			//form_el.find('.return-msg').addClass('show-return-msg');
 		}
 
 		$('.return-msg').on('click', function(e) {
-			$(this).removeClass('show-return-msg').html('&nbsp;');
+			//$(this).removeClass('show-return-msg').html('&nbsp;');
 		});
 
 
