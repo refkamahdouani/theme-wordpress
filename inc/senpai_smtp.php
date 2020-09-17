@@ -35,9 +35,9 @@ function Send_mail($email,$name,$msg)
     
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail->Subject = "Senpai Contact form ${email}";
+        $mail->Body    = "<p><b>Name:</b>${name}</p><br><p><b>Email:</b>${email}</p><br><p><b>Contents:</b>${msg}</p>";
+        $mail->AltBody = "name:${name} | email:${email} | message:${msg}";
     
         $mail->send();
         $res = 1;
