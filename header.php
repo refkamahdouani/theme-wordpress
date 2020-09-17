@@ -39,7 +39,14 @@
         <div class="crazy-border"></div>
 
         <div class="crazy-logo">
-            <a href="<?php echo get_home_url(); ?>"><img src="https://via.placeholder.com/180x60" alt="crazy-logo"></a>
+        <?php 
+        $image = get_field('logo', 'option');
+        error_log(print_r($image,1));
+        if( !empty( $image ) ): ?>    
+
+            <a href="<?php echo get_home_url(); ?>"><img src="<?php echo esc_url($image['url']); ?>" alt="crazy-logo"></a>
+
+            <?php endif; ?>
         </div>
         <!-- End crazy-logo -->
 

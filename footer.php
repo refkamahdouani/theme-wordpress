@@ -4,7 +4,7 @@
 
 			<footer>
 			<?php 
-$image = get_field('bg_image');
+$image = get_field('contact');
 
 if( !empty( $image ) ): ?>
 				<div class="pt150 jarallax" style="background-image: url(<?php echo esc_url($image['url']); ?>);">
