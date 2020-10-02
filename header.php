@@ -41,7 +41,7 @@
         <div class="crazy-logo">
         <?php 
         $image = get_field('logo', 'option');
-        error_log(print_r($image,1));
+        //error_log(print_r($image,1));
         if( !empty( $image ) ): ?>    
 
             <a href="<?php echo get_home_url(); ?>"><img src="<?php echo esc_url($image['url']); ?>" alt="crazy-logo"></a>

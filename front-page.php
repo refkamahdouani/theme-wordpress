@@ -18,9 +18,19 @@ if( !empty( $image ) ): ?>
 				<div class="container">
 					<div class="text-center">
 
-						<h1 class="typed" data-sr>&nbsp;</h1>
+					<h1 class="typed" data-sr>&nbsp;</h1>
 
-						<em data-sr>Pellentesque vitae feugiat nisi, et pharetra eros. Cras vehicula dignissim augue<br>vitae efficitur erat volutpat. Nulla facilisi tempus mattis.</em>
+	<div class="home">
+        <h2>
+            hello word
+        </h2>
+    </div>
+ 
+    
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <script src="app.js"></script>
 
 						<div class="buttons mt40 mb150">
 

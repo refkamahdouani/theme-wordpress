@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 add_action('after_switch_theme', 'senpai_activation');
 
 function senpai_activation () {
-    error_log('senpai theme activated');
+    //error_log('senpai theme activated');
     global $wpdb;
     
     $table_name = $wpdb->prefix . "users_log"; 
@@ -26,4 +26,7 @@ function senpai_activation () {
     
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
+
+
+    
 }

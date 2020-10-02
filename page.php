@@ -34,7 +34,10 @@
 			<!-- End page-title -->
 
 <main>
-	<div>page</div>
+<?php while ( have_posts() ) : 
+	the_post(); 
+	the_content();
+	endwhile; ?>
 </main>
 
 

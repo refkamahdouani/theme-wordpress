@@ -22,7 +22,7 @@ $terms = get_terms( array(
     'taxonomy' => 'types',
     'hide_empty' => true,
 ) );
-error_log(print_r($terms,1));
+//error_log(print_r($terms,1));
 
 $args = array(
     'post_type' => 'project',
@@ -34,6 +34,6 @@ $latest_projects = get_posts( $args );
 foreach ($latest_projects as $key => $project) {
     $ID = $project->ID;
     $terms = get_the_terms( $ID, 'types' );
-    error_log(print_r($terms,1));
-    error_log('----------------');
+    //error_log(print_r($terms,1));
+    //error_log('----------------');
 }

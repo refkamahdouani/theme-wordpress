@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///editor.scss"],"names":[],"mappings":"AAAA;EACE,uBAAuB;EACvB,4BAA4B,EAAE","file":"index.css","sourcesContent":[".wp-block-create-block-count {\n  border: 1px dotted #f00;\n  background-color: darkviolet; }\n"],"sourceRoot":""}

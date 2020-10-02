@@ -93,4 +93,43 @@ require_once get_template_directory() . '/inc/senpai_smtp.php';
 //error_log($result);
 
 
+function my_acf_init_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // register a Developer block.
+        acf_register_block_type(array(
+            'name'              => 'Developer',
+            'title'             => __('Developer'),
+            'description'       => __('A custom Developer block.'),
+            'render_template'   => 'template-parts/blocks/Developer/Developer.php',
+            'category'          => 'formatting',
+            'icon'              => 'admin-users',
+            'keywords'          => array( 'Developer', ),
+        ));
+    }
+}
+add_action('acf/init', 'my_acf_init_block_types');
+
+
+
+function senpai_custom_roles() {
+    add_role( 'developer', __('Developer'), array( 'read' => true ) );
+}
+add_action( 'init', 'senpai_custom_roles' );
+
+
+    //Custom Post types Taxanomies
+require_once get_template_directory() . '/blocks/developers/developers.php';
+
+
+require_once get_template_directory() . '/blocks/portfolio/portfolio.php';
+
+require_once get_template_directory() . '/blocks/blog/blog.php';
+
+require_once get_template_directory() . '/blocks/count/count.php';
+
+
+
 
